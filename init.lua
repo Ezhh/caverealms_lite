@@ -225,7 +225,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local n_biome = nvals_biome[nixz] --make an easier reference to the noise
 
 				--compare noise values to determine a biome
-				if n_biome < 0.3 then
+				if n_biome > -0.5 and n_biome < 0 then
 					biome = 0
 				elseif n_biome < 0.5 then
 					biome = 1 --moss
@@ -238,13 +238,15 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						biome = 8 --glow obsidian
 					end
 				elseif n_biome >= 0.5 then
+
+					print(">>>>>>>>>>>>>>>>>" .. n_biome)
+
 					if n_biome >= 0.7 then
 						biome = 5 --deep glaciated
 					else
 						biome = 4 --glaciated
 					end
 				else
-					print(">>>>>>>>>>>>>>>>>" .. n_biome)
 					biome = 3 --algae
 					if is_deep then
 						biome = 9 --coal dust
