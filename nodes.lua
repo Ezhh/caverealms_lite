@@ -204,7 +204,7 @@ minetest.register_node("caverealms:glow_gem", {
 	drawtype = "plantlike",
 	walkable = false,
 	buildable_to = true,
-	visual_scale = 1.0,
+	visual_scale = 0.75,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
