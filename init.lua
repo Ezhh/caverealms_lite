@@ -223,8 +223,11 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				--determine biome
 				local biome = false --preliminary declaration
 				local n_biome = nvals_biome[nixz] --make an easier reference to the noise
+
 				--compare noise values to determine a biome
-				if n_biome >= 0 and n_biome < 0.5 then
+				if n_biome < 0.3 then
+					biome = 0
+				elseif n_biome < 0.5 then
 					biome = 1 --moss
 					if is_deep then
 						biome = 7 --salt crystal
@@ -241,6 +244,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						biome = 4 --glaciated
 					end
 				else
+					print(">>>>>>>>>>>>>>>>>" .. n_biome)
 					biome = 3 --algae
 					if is_deep then
 						biome = 9 --coal dust
@@ -250,12 +254,16 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				if y <= DM_TOP and y >= DM_BOT then
 					biome = 6 --DUNGEON MASTER'S LAIR
 				end
+
+				-- print(biome)
+
 				--if y <= -1000 then
 					--biome = 6 --DUNGEON MASTER'S LAIR
 				--end
 				
 				--if math.floor(((nvals_cave[nixyz2] + nvals_wave[nixyz2])/2)*100) == math.floor(tcave*100) then
 
+				if biome > 0 then
 					--ceiling
 					local ai = area:index(x,y+1,z) --above index
 					if data[ai] == c_stone and data[vi] == c_air then --ceiling
@@ -396,7 +404,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						if math.random() < CRYSTAL then
 							caverealms:crystal_stalagmite(x,y,z, area, data, biome)
 						end
-					--end
+					end
 
 				end
 				nixyz2 = nixyz2 + 1
