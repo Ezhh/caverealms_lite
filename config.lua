@@ -54,7 +54,8 @@ setting("number", "h_clac", 8) --max height of glow crystal stalactites
 setting("number", "gemcha", 0.03) --chance of small glow gems
 setting("number", "mushcha", 0.04) --chance of mushrooms
 setting("number", "myccha", 0.03) --chance of mycena mushrooms
-setting("number", "wormcha", 0.02) --chance of glow worms
+--setting("number", "wormcha", 0.02) --chance of glow worms
+setting("number", "wormcha", 0.015) --chance of glow worms
 setting("number", "giantcha", 0.001) --chance of giant mushrooms
 setting("number", "icicha", 0.035) --chance of icicles
 setting("number", "flacha", 0.04) --chance of constant flames
