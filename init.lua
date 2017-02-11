@@ -225,7 +225,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local n_biome = nvals_biome[nixz] --make an easier reference to the noise
 
 				--compare noise values to determine a biome
-				if n_biome > -0.5 and n_biome < 0 then
+				if n_biome > -0.5 and n_biome < -0.25 then
 					-- print(">>>>>>>>>>>>>>>>>" .. n_biome)
 					biome = 0
 				elseif n_biome <= 0.6 then
