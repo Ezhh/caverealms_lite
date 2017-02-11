@@ -226,8 +226,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 				--compare noise values to determine a biome
 				if n_biome > -0.5 and n_biome < 0 then
+					-- print(">>>>>>>>>>>>>>>>>" .. n_biome)
 					biome = 0
-				elseif n_biome < 0.5 then
+				elseif n_biome <= 0.6 then
 					biome = 1 --moss
 					if is_deep then
 						biome = 7 --salt crystal
@@ -237,9 +238,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					if is_deep then
 						biome = 8 --glow obsidian
 					end
-				elseif n_biome >= 0.5 then
+				elseif n_biome > 0.6 then
 
-					print(">>>>>>>>>>>>>>>>>" .. n_biome)
+					-- print(">>>>>>>>>>>>>>>>>" .. n_biome)
 
 					if n_biome >= 0.7 then
 						biome = 5 --deep glaciated
