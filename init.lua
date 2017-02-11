@@ -167,37 +167,40 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local minposxyz = {x=x0, y=y0, z=z0} --bottom corner
 	local minposxz = {x=x0, y=z0} --2D bottom corner
 	
-	local nvals_cave = minetest.get_perlin_map(np_cave, chulens):get3dMap_flat(minposxyz) --cave noise for structure
-	local nvals_wave = minetest.get_perlin_map(np_wave, chulens):get3dMap_flat(minposxyz) --wavy structure of cavern ceilings and floors
+	--local nvals_cave = minetest.get_perlin_map(np_cave, chulens):get3dMap_flat(minposxyz) --cave noise for structure
+	--local nvals_wave = minetest.get_perlin_map(np_wave, chulens):get3dMap_flat(minposxyz) --wavy structure of cavern ceilings and floors
 	local nvals_biome = minetest.get_perlin_map(np_biome, chulens2D):get2dMap_flat({x=x0+150, y=z0+50}) --2D noise for biomes (will be 3D humidity/temp later)
 	
 	local nixyz = 1 --3D node index
 	local nixz = 1 --2D node index
 	local nixyz2 = 1 --second 3D index for second loop
 	
+
+
 	for z = z0, z1 do -- for each xy plane progressing northwards
 		--structure loop
-		for y = y0, y1 do -- for each x row progressing upwards
-			local tcave --declare variable
-			--determine the overal cave threshold
-			if y < yblmin then
-				tcave = TCAVE + ((yblmin - y) / BLEND) ^ 2
-			elseif y > yblmax then
-				tcave = TCAVE + ((y - yblmax) / BLEND) ^ 2
-			else
-				tcave = TCAVE
-			end
-			local vi = area:index(x0, y, z) --current node index
-			for x = x0, x1 do -- for each node do
-				if (nvals_cave[nixyz] + nvals_wave[nixyz])/2 > tcave then --if node falls within cave threshold
-					data[vi] = c_air --hollow it out to make the cave
-				end
-				--increment indices
+		--for y = y0, y1 do -- for each x row progressing upwards
+		--	local tcave --declare variable
+		--	--determine the overal cave threshold
+		--	if y < yblmin then
+		--		tcave = TCAVE + ((yblmin - y) / BLEND) ^ 2
+	--		elseif y > yblmax then
+	--			tcave = TCAVE + ((y - yblmax) / BLEND) ^ 2
+	--		else
+	--			tcave = TCAVE
+	--		end
+	--		local vi = area:index(x0, y, z) --current node index
+	--		for x = x0, x1 do -- for each node do
+	--			if (nvals_cave[nixyz] + nvals_wave[nixyz])/2 > tcave then --if node falls within cave threshold
+	--				data[vi] = c_air --hollow it out to make the cave
+	--			end
+	--			--increment indices
 				nixyz = nixyz + 1
-				vi = vi + 1
-			end
-		end
-		
+	--			vi = vi + 1
+	--		end
+	--	end
+
+
 		--decoration loop
 		for y = y0, y1 do -- for each x row progressing upwards
 		
@@ -206,14 +209,14 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				is_deep = true
 			end
 		
-			local tcave --same as above
-			if y < yblmin then
-				tcave = TCAVE + ((yblmin - y) / BLEND) ^ 2
-			elseif y > yblmax then
-				tcave = TCAVE + ((y - yblmax) / BLEND) ^ 2
-			else
-				tcave = TCAVE
-			end
+			--local tcave --same as above
+			--if y < yblmin then
+			--	tcave = TCAVE + ((yblmin - y) / BLEND) ^ 2
+			--elseif y > yblmax then
+			--	tcave = TCAVE + ((y - yblmax) / BLEND) ^ 2
+			--else
+			--	tcave = TCAVE
+			--end
 			local vi = area:index(x0, y, z)
 			for x = x0, x1 do -- for each node do
 				
@@ -251,7 +254,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					--biome = 6 --DUNGEON MASTER'S LAIR
 				--end
 				
-				if math.floor(((nvals_cave[nixyz2] + nvals_wave[nixyz2])/2)*100) == math.floor(tcave*100) then
+				--if math.floor(((nvals_cave[nixyz2] + nvals_wave[nixyz2])/2)*100) == math.floor(tcave*100) then
+
 					--ceiling
 					local ai = area:index(x,y+1,z) --above index
 					if data[ai] == c_stone and data[vi] == c_air then --ceiling
@@ -385,15 +389,15 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								data[ai] = spikes[sidx]
 							end
 						end
-						
+
 						if math.random() < STAGCHA then
 							caverealms:stalagmite(x,y,z, area, data)
 						end
 						if math.random() < CRYSTAL then
 							caverealms:crystal_stalagmite(x,y,z, area, data, biome)
 						end
-					end
-					
+					--end
+
 				end
 				nixyz2 = nixyz2 + 1
 				nixz = nixz + 1
@@ -403,7 +407,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		end
 		nixz = nixz + sidelen --shift the 2D index up a layer
 	end
-	
+
 	--send data back to voxelmanip
 	vm:set_data(data)
 	--calc lighting
