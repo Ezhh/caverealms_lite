@@ -190,103 +190,74 @@ minetest.register_node("caverealms:hanging_thin_ice", {
 })
 
 --glowing crystal gem
-local glow_gem_size = { 1.0, 1.2, 1.4, 1.6, 1.7 }
 
-for i in ipairs(glow_gem_size) do
-	if i == 1 then
-		nodename = "caverealms:glow_gem"
-	else
-		nodename = "caverealms:glow_gem_"..i
-	end
+minetest.register_node("caverealms:glow_gem", {
+	description = "Glow Gem",
+	tiles = {"caverealms_glow_gem.png"},
+	inventory_image = "caverealms_glow_gem.png",
+	wield_image = "caverealms_glow_gem.png",
+	is_ground_content = true,
+	groups = {cracky=3, oddly_breakable_by_hand=1},
+	sounds = default.node_sound_glass_defaults(),
+	light_source = 11,
+	paramtype = "light",
+	drawtype = "plantlike",
+	walkable = false,
+	buildable_to = true,
+	visual_scale = 1.0,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	}
+})
 
-	vs = glow_gem_size[i]
-
-	minetest.register_node(nodename, {
-		description = "Glow Gem",
-		tiles = {"caverealms_glow_gem.png"},
-		inventory_image = "caverealms_glow_gem.png",
-		wield_image = "caverealms_glow_gem.png",
-		is_ground_content = true,
-		groups = {cracky=3, oddly_breakable_by_hand=1},
-		sounds = default.node_sound_glass_defaults(),
-		light_source = 11,
-		paramtype = "light",
-		drawtype = "plantlike",
-		walkable = false,
-		buildable_to = true,
-		visual_scale = vs,
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5*vs, -0.5*vs, -0.5*vs, 0.5*vs, -5/16*vs, 0.5*vs},
-		}
-	})
-end
 
 --glowing salt gem
-local salt_gem_size = { 1.0, 1.2, 1.4, 1.6, 1.7 }
 
-for i in ipairs(salt_gem_size) do
-	if i == 1 then
-		nodename = "caverealms:salt_gem"
-	else
-		nodename = "caverealms:salt_gem_"..i
-	end
+minetest.register_node("caverealms:salt_gem", {
+	description = "Salt Gem",
+	tiles = {"caverealms_salt_gem.png"},
+	inventory_image = "caverealms_salt_gem.png",
+	wield_image = "caverealms_salt_gem.png",
+	is_ground_content = true,
+	groups = {cracky=3, oddly_breakable_by_hand=1},
+	sounds = default.node_sound_glass_defaults(),
+	light_source = 11,
+	paramtype = "light",
+	drawtype = "plantlike",
+	walkable = false,
+	buildable_to = true,
+	visual_scale = 1.0,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	}
+})
 
-	vs = salt_gem_size[i]
-
-	minetest.register_node(nodename, {
-		description = "Salt Gem",
-		tiles = {"caverealms_salt_gem.png"},
-		inventory_image = "caverealms_salt_gem.png",
-		wield_image = "caverealms_salt_gem.png",
-		is_ground_content = true,
-		groups = {cracky=3, oddly_breakable_by_hand=1},
-		sounds = default.node_sound_glass_defaults(),
-		light_source = 11,
-		paramtype = "light",
-		drawtype = "plantlike",
-		walkable = false,
-		buildable_to = true,
-		visual_scale = vs,
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5*vs, -0.5*vs, -0.5*vs, 0.5*vs, -5/16*vs, 0.5*vs},
-		}
-	})
-end
 
 --stone spike
-local spike_size = { 1.0, 1.2, 1.4, 1.6, 1.7 }
 
-for i in ipairs(spike_size) do
-	if i == 1 then
-		nodename = "caverealms:spike"
-	else
-		nodename = "caverealms:spike_"..i
-	end
 
-	vs = spike_size[i]
+minetest.register_node("caverealms:spike", {
+	description = "Stone Spike",
+	tiles = {"caverealms_spike.png"},
+	inventory_image = "caverealms_spike.png",
+	wield_image = "caverealms_spike.png",
+	is_ground_content = true,
+	groups = {cracky=3, oddly_breakable_by_hand=1},
+	sounds = default.node_sound_stone_defaults(),
+	light_source = 3,
+	paramtype = "light",
+	drawtype = "plantlike",
+	walkable = false,
+	buildable_to = true,
+	visual_scale = 1.0,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	}
+})
 
-	minetest.register_node(nodename, {
-		description = "Stone Spike",
-		tiles = {"caverealms_spike.png"},
-		inventory_image = "caverealms_spike.png",
-		wield_image = "caverealms_spike.png",
-		is_ground_content = true,
-		groups = {cracky=3, oddly_breakable_by_hand=1},
-		sounds = default.node_sound_stone_defaults(),
-		light_source = 3,
-		paramtype = "light",
-		drawtype = "plantlike",
-		walkable = false,
-		buildable_to = true,
-		visual_scale = vs,
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5*vs, -0.5*vs, -0.5*vs, 0.5*vs, -5/16*vs, 0.5*vs},
-		}
-	})
-end
 
 --upward pointing icicle
 minetest.register_node("caverealms:icicle_up", {
