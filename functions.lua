@@ -9,33 +9,20 @@ local H_CLAC = caverealms.config.h_clac --13 --max height of glow crystal stalac
 
 function caverealms:above_solid(x,y,z,area,data)
 	local c_air = minetest.get_content_id("air")
-	
-	local c_vac
-	if (minetest.get_modpath("moontest")) then
-		c_vac = minetest.get_content_id("moontest:vacuum")
-	else
-		c_vac = minetest.get_content_id("air")
-	end
-	
+
 	local ai = area:index(x,y+1,z-3)
-	if data[ai] == c_air or data[ai] == c_vac then
+	if data[ai] == c_air then
 		return false
 	else
 		return true
 	end
 end
+
 function caverealms:below_solid(x,y,z,area,data)
 	local c_air = minetest.get_content_id("air")
-	
-	local c_vac
-	if (minetest.get_modpath("moontest")) then
-		c_vac = minetest.get_content_id("moontest:vacuum")
-	else
-		c_vac = minetest.get_content_id("air")
-	end
-	
+
 	local ai = area:index(x,y-1,z-3)
-	if data[ai] == c_air or data[ai] == c_vac then
+	if data[ai] == c_air then
 		return false
 	else
 		return true
