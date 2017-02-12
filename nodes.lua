@@ -514,7 +514,9 @@ minetest.register_node("caverealms:constant_flame", {
 	
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		if not (minetest.get_modpath("moontest")) then
-			fire.on_flame_remove_at(pos)
+			if (fire.on_flame_remove_at ~= nil) then
+				fire.on_flame_remove_at(pos)
+			end
 		end
 	end,
 })
