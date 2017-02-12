@@ -49,28 +49,6 @@ local DM_TOP = caverealms.config.dm_top -- -4000 --level at which Dungeon Master
 local DM_BOT = caverealms.config.dm_bot -- -5000 --level at which "" ends
 local DEEP_CAVE = caverealms.config.deep_cave -- -7000 --level at which deep cave biomes take over
 
--- 3D noise for caves
-
-local np_cave = {
-	offset = 0,
-	scale = 1,
-	spread = {x=512, y=256, z=512}, -- squashed 2:1
-	seed = 59033,
-	octaves = 6,
-	persist = 0.63
-}
-
--- 3D noise for wave
-
-local np_wave = {
-	offset = 0,
-	scale = 1,
-	spread = {x=256, y=256, z=256},
-	seed = -400000000089,
-	octaves = 3,
-	persist = 0.67
-}
-
 -- 2D noise for biome
 
 local np_biome = {
@@ -86,8 +64,6 @@ local np_biome = {
 
 subterrain = {}
 
-local yblmin = YMIN + BLEND * 1.5
-local yblmax = YMAX - BLEND * 1.5
 
 -- On generated function
 
@@ -167,8 +143,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local minposxyz = {x=x0, y=y0, z=z0} --bottom corner
 	local minposxz = {x=x0, y=z0} --2D bottom corner
 	
-	--local nvals_cave = minetest.get_perlin_map(np_cave, chulens):get3dMap_flat(minposxyz) --cave noise for structure
-	--local nvals_wave = minetest.get_perlin_map(np_wave, chulens):get3dMap_flat(minposxyz) --wavy structure of cavern ceilings and floors
 	local nvals_biome = minetest.get_perlin_map(np_biome, chulens2D):get2dMap_flat({x=x0+150, y=z0+50}) --2D noise for biomes (will be 3D humidity/temp later)
 	
 	local nixyz = 1 --3D node index
@@ -176,29 +150,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local nixyz2 = 1 --second 3D index for second loop
 	
 
-
 	for z = z0, z1 do -- for each xy plane progressing northwards
-		--structure loop
-		--for y = y0, y1 do -- for each x row progressing upwards
-		--	local tcave --declare variable
-		--	--determine the overal cave threshold
-		--	if y < yblmin then
-		--		tcave = TCAVE + ((yblmin - y) / BLEND) ^ 2
-	--		elseif y > yblmax then
-	--			tcave = TCAVE + ((y - yblmax) / BLEND) ^ 2
-	--		else
-	--			tcave = TCAVE
-	--		end
-	--		local vi = area:index(x0, y, z) --current node index
-	--		for x = x0, x1 do -- for each node do
-	--			if (nvals_cave[nixyz] + nvals_wave[nixyz])/2 > tcave then --if node falls within cave threshold
-	--				data[vi] = c_air --hollow it out to make the cave
-	--			end
-	--			--increment indices
-				nixyz = nixyz + 1
-	--			vi = vi + 1
-	--		end
-	--	end
+		--increment indices
+		nixyz = nixyz + 1
 
 
 		--decoration loop
@@ -209,14 +163,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				is_deep = true
 			end
 		
-			--local tcave --same as above
-			--if y < yblmin then
-			--	tcave = TCAVE + ((yblmin - y) / BLEND) ^ 2
-			--elseif y > yblmax then
-			--	tcave = TCAVE + ((y - yblmax) / BLEND) ^ 2
-			--else
-			--	tcave = TCAVE
-			--end
+
 			local vi = area:index(x0, y, z)
 			for x = x0, x1 do -- for each node do
 				
@@ -257,14 +204,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				if y <= DM_TOP and y >= DM_BOT then
 					biome = 6 --DUNGEON MASTER'S LAIR
 				end
-
-				-- print(biome)
-
-				--if y <= -1000 then
-					--biome = 6 --DUNGEON MASTER'S LAIR
-				--end
-				
-				--if math.floor(((nvals_cave[nixyz2] + nvals_wave[nixyz2])/2)*100) == math.floor(tcave*100) then
 
 				if biome > 0 then
 					--ceiling
