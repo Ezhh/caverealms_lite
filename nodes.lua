@@ -190,7 +190,6 @@ minetest.register_node("caverealms:hanging_thin_ice", {
 })
 
 --glowing crystal gem
-
 minetest.register_node("caverealms:glow_gem", {
 	description = "Glow Gem",
 	tiles = {"caverealms_glow_gem.png"},
@@ -211,9 +210,7 @@ minetest.register_node("caverealms:glow_gem", {
 	}
 })
 
-
 --glowing salt gem
-
 minetest.register_node("caverealms:salt_gem", {
 	description = "Salt Gem",
 	tiles = {"caverealms_salt_gem.png"},
@@ -227,17 +224,14 @@ minetest.register_node("caverealms:salt_gem", {
 	drawtype = "plantlike",
 	walkable = false,
 	buildable_to = true,
-	visual_scale = 1.0,
+	visual_scale = 0.75,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 	}
 })
 
-
 --stone spike
-
-
 minetest.register_node("caverealms:spike", {
 	description = "Stone Spike",
 	tiles = {"caverealms_spike.png"},
@@ -251,7 +245,7 @@ minetest.register_node("caverealms:spike", {
 	drawtype = "plantlike",
 	walkable = false,
 	buildable_to = true,
-	visual_scale = 1.0,
+	visual_scale = 0.75,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
