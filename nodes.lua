@@ -455,21 +455,26 @@ minetest.register_node("caverealms:mycena", {
 })
 
 --giant mushroom
---stem
-minetest.register_node("caverealms:mushroom_stem", {
-	description = "Giant Mushroom Stem",
-	tiles = {"caverealms_mushroom_stem.png"},
-	is_ground_content = true,
-	groups = {oddly_breakable_by_hand=1},
-})
+if minetest.get_modpath("ethereal") then
+	minetest.register_alias("caverealms:mushroom_cap", "ethereal:mushroom")
+	minetest.register_alias("caverealms:mushroom_stem", "ethereal:mushroom_trunk")
+else
+	--stem
+	minetest.register_node("caverealms:mushroom_stem", {
+		description = "Giant Mushroom Stem",
+		tiles = {"caverealms_mushroom_stem.png"},
+		is_ground_content = true,
+		groups = {oddly_breakable_by_hand=1},
+	})
 
---cap
-minetest.register_node("caverealms:mushroom_cap", {
-	description = "Giant Mushroom Cap",
-	tiles = {"caverealms_mushroom_cap.png"},
-	is_ground_content = true,
-	groups = {oddly_breakable_by_hand=1},
-})
+	--cap
+	minetest.register_node("caverealms:mushroom_cap", {
+		description = "Giant Mushroom Cap",
+		tiles = {"caverealms_mushroom_cap.png"},
+		is_ground_content = true,
+		groups = {oddly_breakable_by_hand=1},
+	})
+end
 
 --gills
 minetest.register_node("caverealms:mushroom_gills", {
@@ -527,7 +532,6 @@ minetest.register_node("caverealms:s_chest", {
 })
 
 --hacky schematic placers
-
 minetest.register_node("caverealms:s_fountain", {
 	description = "A Hack like you should know what this does...",
 	tiles = {"caverealms_stone_eyes.png"},

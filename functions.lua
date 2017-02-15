@@ -360,8 +360,14 @@ function caverealms:giant_shroom(x, y, z, area, data)
 	end
 
 	--as usual, grab the content ID's
-	local c_stem = minetest.get_content_id("caverealms:mushroom_stem")
-	local c_cap = minetest.get_content_id("caverealms:mushroom_cap")
+	if minetest.get_modpath("ethereal") then
+		local c_stem = minetest.get_content_id("ethereal:mushroom_trunk")
+		local c_cap = minetest.get_content_id("ethereal:mushroom")
+	else
+		local c_stem = minetest.get_content_id("caverealms:mushroom_stem")
+		local c_cap = minetest.get_content_id("caverealms:mushroom_cap")
+	end
+	
 	local c_gills = minetest.get_content_id("caverealms:mushroom_gills")
 
 	z = z - 5
@@ -405,8 +411,13 @@ end
 
 function caverealms:legacy_giant_shroom(x, y, z, area, data) --leftovers :P
 	--as usual, grab the content ID's
-	local c_stem = minetest.get_content_id("caverealms:mushroom_stem")
-	local c_cap = minetest.get_content_id("caverealms:mushroom_cap")
+	if minetest.get_modpath("ethereal") then
+		local c_stem = minetest.get_content_id("ethereal:mushroom_trunk")
+		local c_cap = minetest.get_content_id("ethereal:mushroom")
+	else
+		local c_stem = minetest.get_content_id("caverealms:mushroom_stem")
+		local c_cap = minetest.get_content_id("caverealms:mushroom_cap")
+	end
 	
 	z = z - 4
 	--cap
