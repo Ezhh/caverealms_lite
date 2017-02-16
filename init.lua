@@ -82,7 +82,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local y0 = minp.y
 	local z0 = minp.z
 	
-	print ("[caverealms] chunk minp ("..x0.." "..y0.." "..z0..")") --tell people you are generating a chunk
+	--print ("[caverealms] chunk minp ("..x0.." "..y0.." "..z0..")") --tell people you are generating a chunk
 	
 	local vm, emin, emax = minetest.get_mapgen_object("voxelmanip")
 	local area = VoxelArea:new{MinEdge=emin, MaxEdge=emax}
@@ -163,44 +163,42 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			for x = x0, x1 do -- for each node do
 				
 				--determine biome
-				local biome = false --preliminary declaration
+				local biome = 0 --preliminary declaration
 				local n_biome = nvals_biome[nixz] --make an easier reference to the noise
 
 				--compare noise values to determine a biome
-				if n_biome > -0.5 and n_biome < -0.25 then
-					-- print(">>>>>>>>>>>>>>>>>" .. n_biome)
-					biome = 0
-				elseif n_biome <= 0.6 then
-					biome = 1 --moss
-					if is_deep then
-						biome = 7 --salt crystal
-					end
-				elseif n_biome <= -0.5 then
+				if n_biome <= -0.5 then
 					biome = 2 --fungal
 					if is_deep then
 						biome = 8 --glow obsidian
 					end
-				elseif n_biome > 0.6 then
+				elseif n_biome < 0 then
+						biome = 0 -- none
+				elseif n_biome < 0.5 then
 
-					-- print(">>>>>>>>>>>>>>>>>" .. n_biome)
-
-					if n_biome >= 0.7 then
-						biome = 5 --deep glaciated
-					else
-						biome = 4 --glaciated
+					biome = 1 --moss
+					if is_deep then
+						biome = 7 --salt crystal
 					end
-				else
+				elseif n_biome < 0.7 then
 					biome = 3 --algae
 					if is_deep then
 						biome = 9 --coal dust
 					end
-				end
-				
-				if y <= DM_TOP and y >= DM_BOT then
-					biome = 6 --DUNGEON MASTER'S LAIR
+				else
+					biome = 4 --glaciated
+					if is_deep then
+						biome = 5 --deep glaciated
+					end
 				end
 
+				--print(biome)
+
 				if biome > 0 then
+					if biome ~= 0 and y <= DM_TOP and y >= DM_BOT then
+						biome = 6 --DUNGEON MASTER'S LAIR
+					end
+
 					--ceiling
 					local ai = area:index(x,y+1,z) --above index
 					if data[ai] == c_stone and data[vi] == c_air then --ceiling
@@ -362,6 +360,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	vm:write_to_map(data)
 
 	local chugent = math.ceil((os.clock() - t1) * 1000) --grab how long it took
-	print ("[caverealms] "..chugent.." ms") --tell people how long
+	--print ("[caverealms] "..chugent.." ms") --tell people how long
 end)
 print("[caverealms] loaded!")
