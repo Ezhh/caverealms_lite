@@ -180,7 +180,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					if is_deep then
 						biome = 7 --salt crystal
 					end
-				elseif n_biome < 0.7 then
+				elseif n_biome < 0.8 then
 					biome = 3 --algae
 					if is_deep then
 						biome = 9 --coal dust
