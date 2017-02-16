@@ -417,7 +417,7 @@ function caverealms:legacy_giant_shroom(x, y, z, area, data) --leftovers :P
 	--as usual, grab the content ID's
 
 	local c_cap
-	local c_sterm
+	local c_stem
 
 	if minetest.get_modpath("ethereal") then
 		c_stem = minetest.get_content_id("ethereal:mushroom_trunk")
