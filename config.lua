@@ -22,7 +22,7 @@ end
 
 --generation settings
 setting("number", "ymin", -33000) --bottom realm limit
-setting("number", "ymax", -700) --top realm limit
+setting("number", "ymax", -1500) --top realm limit
 --setting("number", "tcave", 0.5) --cave threshold
 setting("number", "tcave", 0.75) --cave threshold
 
@@ -63,8 +63,8 @@ setting("number", "founcha", 0.001) --chance of fountains
 setting("number", "fortcha", 0.0003) --chance of fortresses
 
 --realm limits for Dungeon Masters' Lair
-setting("number", "dm_top", -4000) --upper limit 
-setting("number", "dm_bot", -5000) --lower limit 
+setting("number", "dm_top", -14000) --upper limit
+setting("number", "dm_bot", -16000) --lower limit
 --should fortresses and fountains spawn?
 setting("bool", "fortresses", false)
 setting("bool", "fountains", false)
