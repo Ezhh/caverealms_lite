@@ -144,6 +144,13 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local nixz = 1 --2D node index
 	local nixyz2 = 1 --second 3D index for second loop
 	
+	local allow_deep_caves
+
+	if (math.random() <= 0.5) then
+		allow_deep_caves = true
+	else
+		allow_deep_caves = false
+	end
 
 	for z = z0, z1 do -- for each xy plane progressing northwards
 		--increment indices
@@ -154,7 +161,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		for y = y0, y1 do -- for each x row progressing upwards
 		
 			local is_deep = false
-			if y < DEEP_CAVE then
+			if allow_deep_caves and y < DEEP_CAVE then
 				is_deep = true
 			end
 		
