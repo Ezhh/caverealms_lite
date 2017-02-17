@@ -212,7 +212,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				--print(biome)
 
 				if biome > 0 then
-					if biome ~= 0 and y <= DM_TOP and y >= DM_BOT then
+					if y <= DM_TOP and y >= DM_BOT then
 						biome = 6 --DUNGEON MASTER'S LAIR
 					end
 
@@ -376,7 +376,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	--write it to world
 	vm:write_to_map(data)
 
-	local chugent = math.ceil((os.clock() - t1) * 1000) --grab how long it took
+	--local chugent = math.ceil((os.clock() - t1) * 1000) --grab how long it took
 	--print ("[caverealms] "..chugent.." ms") --tell people how long
 end)
 print("[caverealms] loaded!")
