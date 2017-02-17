@@ -125,6 +125,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local c_fungus = minetest.get_content_id("caverealms:fungus")
 	local c_mycena = minetest.get_content_id("caverealms:mycena")
 	local c_worm = minetest.get_content_id("caverealms:glow_worm")
+	local c_worm_green = minetest.get_content_id("caverealms:glow_worm_green")
 	local c_iciu = minetest.get_content_id("caverealms:icicle_up")
 	local c_icid = minetest.get_content_id("caverealms:icicle_down")
 	local c_flame = minetest.get_content_id("caverealms:constant_flame")
@@ -160,6 +161,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		--decoration loop
 		for y = y0, y1 do -- for each x row progressing upwards
 		
+			local c_selected_worm = c_worm
+
 			local is_deep = false
 			if allow_deep_caves and y < DEEP_CAVE then
 				is_deep = true
@@ -175,29 +178,34 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 				--compare noise values to determine a biome
 				if n_biome <= -0.5 then
-					biome = 2 --fungal
 					if is_deep then
 						biome = 8 --glow obsidian
+					else
+						biome = 2 --fungal
 					end
 				elseif n_biome < 0 then
 						biome = 0 -- none
 				elseif n_biome < 0.5 then
-
-					biome = 1 --moss
 					if is_deep then
 						biome = 7 --salt crystal
+					else
+						biome = 1 --moss
+						c_selected_worm = c_worm_green
 					end
 				elseif n_biome < 0.65 then
 					biome = 0
 				elseif n_biome < 0.8 then
-					biome = 3 --algae
 					if is_deep then
 						biome = 9 --coal dust
+					else
+						biome = 3 --algae
+						c_selected_worm = c_worm_green
 					end
 				else
-					biome = 4 --glaciated
 					if is_deep then
 						biome = 5 --deep glaciated
+					else
+						biome = 4 --glaciated
 					end
 				end
 
@@ -215,15 +223,15 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							data[vi] = c_icid
 						end
 						if math.random() < WORMCHA then
-							data[vi] = c_worm
+							data[vi] = c_selected_worm
 							local bi = area:index(x,y-1,z)
-							data[bi] = c_worm
+							data[bi] = c_selected_worm
 							if math.random(2) == 1 then
 								local bbi = area:index(x,y-2,z)
-								data[bbi] = c_worm
+								data[bbi] = c_selected_worm
 								if math.random(2) ==1 then
 									local bbbi = area:index(x,y-3,z)
-									data[bbbi] = c_worm
+									data[bbbi] = c_selected_worm
 								end
 							end
 						end

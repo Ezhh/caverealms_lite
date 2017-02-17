@@ -412,6 +412,26 @@ minetest.register_node("caverealms:glow_worm", {
 	},
 })
 
+minetest.register_node("caverealms:glow_worm_green", {
+	description = "Glow Worms Green",
+	tiles = {"caverealms_glow_worm_green.png"},
+	inventory_image = "caverealms_glow_worm_green.png",
+	wield_image = "caverealms_glow_worm_green.png",
+	is_ground_content = true,
+	groups = {oddly_breakable_by_hand=3},
+	light_source = 9,
+	paramtype = "light",
+	drawtype = "plantlike",
+	walkable = false,
+	buildable_to = true,
+	visual_scale = 1.0,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -0.5, 0.5},
+	},
+})
+
+
 --cave plants go here
 
 --glowing fungi
