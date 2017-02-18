@@ -182,6 +182,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						biome = 8 --glow obsidian
 					else
 						biome = 2 --fungal
+						c_selected_worm = c_worm_green
 					end
 				elseif n_biome < 0 then
 						biome = 0 -- none
@@ -190,7 +191,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						biome = 7 --salt crystal
 					else
 						biome = 1 --moss
-						c_selected_worm = c_worm_green
 					end
 				elseif n_biome < 0.65 then
 					biome = 0
