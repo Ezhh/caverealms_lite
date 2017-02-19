@@ -518,42 +518,6 @@ minetest.register_node("caverealms:constant_flame", {
 	end,
 })
 
---node to create a treasure chest in DM Forts.
-minetest.register_node("caverealms:s_chest", {
-	description = "Trying to rob the bank before it's opened, eh?",
-	tiles = {"default_chest_front.png"},
-	paramtype2 = "facedir",
-	groups = {choppy=3,oddly_breakable_by_hand=2,cavechest=1, not_in_creative_inventory=1},
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if pos.y > DM_TOP then
-			minetest.remove_node(pos)
-		end
-	end,
-})
-
---hacky schematic placers
-minetest.register_node("caverealms:s_fountain", {
-	description = "A Hack like you should know what this does...",
-	tiles = {"caverealms_stone_eyes.png"},
-	groups = {crumbly=3, schema=1, not_in_creative_inventory=1},
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if pos.y > DM_TOP then
-			minetest.remove_node(pos)
-		end
-	end,
-})
-
-minetest.register_node("caverealms:s_fortress", {
-	description = "A Hack like you should know what this does...",
-	tiles = {"caverealms_stone_eyes.png"},
-	groups = {crumbly=3, schema=1, not_in_creative_inventory=1},
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if pos.y > DM_TOP then
-			minetest.remove_node(pos)
-		end
-	end,
-})
-
 --dungeon master statue (nodebox)
 minetest.register_node("caverealms:dm_statue", {
 	tiles = {

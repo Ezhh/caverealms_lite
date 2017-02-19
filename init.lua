@@ -15,7 +15,6 @@ dofile(modpath.."/config.lua") --configuration file; holds various constants
 dofile(modpath.."/crafting.lua") --crafting recipes
 dofile(modpath.."/nodes.lua") --node definitions
 dofile(modpath.."/functions.lua") --function definitions
-dofile(modpath.."/abms.lua") --abm definitions
 
 if caverealms.config.falling_icicles == true then
 	dofile(modpath.."/falling_ice.lua") --complicated function for falling icicles
