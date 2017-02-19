@@ -140,7 +140,7 @@ minetest.register_node("caverealms:salt_crystal", {
 	description = "Salt Crystal",
 	tiles = {"caverealms_salt_crystal.png"},
 	is_ground_content = true,
-	groups = {cracky=3},
+	groups = {cracky=2},
 	sounds = default.node_sound_glass_defaults(),
 	light_source = 11,
 	paramtype = "light",
@@ -300,7 +300,7 @@ minetest.register_node("caverealms:stone_with_moss", {
 	description = "Cave Stone with Moss",
 	tiles = {"default_cobble.png^caverealms_moss.png", "default_cobble.png", "default_cobble.png^caverealms_moss_side.png"},
 	is_ground_content = true,
-	groups = {crumbly=3},
+	groups = {crumbly=1, cracky=3},
 	drop = 'default:cobble',
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_grass_footstep", gain=0.25},
@@ -312,7 +312,7 @@ minetest.register_node("caverealms:stone_with_lichen", {
 	description = "Cave Stone with Lichen",
 	tiles = {"default_cobble.png^caverealms_lichen.png", "default_cobble.png", "default_cobble.png^caverealms_lichen_side.png"},
 	is_ground_content = true,
-	groups = {crumbly=3},
+	groups = {crumbly=1, cracky=3},
 	drop = 'default:cobble',
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_grass_footstep", gain=0.25},
@@ -324,7 +324,7 @@ minetest.register_node("caverealms:stone_with_algae", {
 	description = "Cave Stone with Algae",
 	tiles = {"default_cobble.png^caverealms_algae.png", "default_cobble.png", "default_cobble.png^caverealms_algae_side.png"},
 	is_ground_content = true,
-	groups = {crumbly=3},
+	groups = {crumbly=1, cracky=3},
 	drop = 'default:cobble',
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_grass_footstep", gain=0.25},
@@ -341,7 +341,7 @@ minetest.register_node("caverealms:stone_with_salt", {
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	groups = {crumbly=3},
+	groups = {cracky=3},
 	sounds = default.node_sound_glass_defaults(),
 })
 
@@ -350,7 +350,7 @@ minetest.register_node("caverealms:hot_cobble", {
 	description = "Hot Cobble",
 	tiles = {"caverealms_hot_cobble.png"},
 	is_ground_content = true,
-	groups = {crumbly=2, hot=1},
+	groups = {cracky=1, hot=1},
 	damage_per_second = 1,
 	light_source = 3,
 	sounds = default.node_sound_stone_defaults({
@@ -363,7 +363,7 @@ minetest.register_node("caverealms:glow_obsidian", {
 	description = "Glowing Obsidian",
 	tiles = {"caverealms_glow_obsidian.png"},
 	is_ground_content = true,
-	groups = {crumbly=1},
+	groups = {cracky=1, level=2},
 	light_source = 7,
 	sounds = default.node_sound_stone_defaults({
 		footstep = {name="default_stone_footstep", gain=0.25},
@@ -484,7 +484,7 @@ else
 		description = "Giant Mushroom Stem",
 		tiles = {"caverealms_mushroom_stem.png"},
 		is_ground_content = true,
-		groups = {oddly_breakable_by_hand=1},
+		groups = {choppy=2, oddly_breakable_by_hand=1},
 	})
 
 	--cap
@@ -492,7 +492,7 @@ else
 		description = "Giant Mushroom Cap",
 		tiles = {"caverealms_mushroom_cap.png"},
 		is_ground_content = true,
-		groups = {oddly_breakable_by_hand=1},
+		groups = {choppy=2, oddly_breakable_by_hand=1,},
 	})
 end
 
@@ -501,8 +501,8 @@ minetest.register_node("caverealms:mushroom_gills", {
 	description = "Giant Mushroom Gills",
 	tiles = {"caverealms_mushroom_gills.png"},
 	is_ground_content = true,
-	groups = {oddly_breakable_by_hand=1},
 	light_source = 10,
+	groups = {choppy=2, oddly_breakable_by_hand=1},
 	drawtype = "plantlike",
 	paramtype = "light",
 })
@@ -517,7 +517,7 @@ minetest.register_node("caverealms:constant_flame", {
 	}},
 	inventory_image = "fire_basic_flame.png",
 	light_source = 14,
-	groups = {igniter=2,dig_immediate=3,hot=3, not_in_creative_inventory=1},
+	groups = {igniter=2, dig_immediate=3, hot=3, not_in_creative_inventory=1},
 	drop = '',
 	walkable = false,
 	buildable_to = true,
