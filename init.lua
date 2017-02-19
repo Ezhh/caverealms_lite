@@ -120,6 +120,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local c_mycena = minetest.get_content_id("caverealms:mycena")
 	local c_worm = minetest.get_content_id("caverealms:glow_worm")
 	local c_worm_green = minetest.get_content_id("caverealms:glow_worm_green")
+	local c_fire_vine = minetest.get_content_id("caverealms:fire_vine")
 	local c_iciu = minetest.get_content_id("caverealms:icicle_up")
 	local c_icid = minetest.get_content_id("caverealms:icicle_down")
 	local c_flame = minetest.get_content_id("caverealms:constant_flame")
@@ -206,6 +207,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				if biome > 0 then
 					if y <= DM_TOP and y >= DM_BOT then
 						biome = 6 --DUNGEON MASTER'S LAIR
+						c_selected_worm = c_fire_vine
 					end
 
 					--ceiling
