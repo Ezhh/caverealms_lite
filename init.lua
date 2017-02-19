@@ -21,9 +21,6 @@ if caverealms.config.falling_icicles == true then
 	print("[caverealms] falling icicles enabled.")
 end
 
-local FORTRESSES = caverealms.config.fortresses --true | Should fortresses spawn?
-local FOUNTAINS = caverealms.config.fountains --true | Should fountains spawn?
-
 -- Parameters
 
 local YMIN = caverealms.config.ymin -- Approximate realm limits.
@@ -41,8 +38,6 @@ local WORMCHA = caverealms.config.wormcha --0.03 --chance of glow worms
 local GIANTCHA = caverealms.config.giantcha --0.001 -- chance of giant mushrooms
 local ICICHA = caverealms.config.icicha --0.035 -- chance of icicles
 local FLACHA = caverealms.config.flacha --0.04 --chance of constant flames
-local FOUNCHA = caverealms.config.founcha --0.001 --chance of statue + fountain
-local FORTCHA = caverealms.config.fortcha --0.0003 --chance of DM Fortresses
 
 local DM_TOP = caverealms.config.dm_top -- -4000 --level at which Dungeon Master Realms start to appear
 local DM_BOT = caverealms.config.dm_bot -- -5000 --level at which "" ends
@@ -128,8 +123,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local c_iciu = minetest.get_content_id("caverealms:icicle_up")
 	local c_icid = minetest.get_content_id("caverealms:icicle_down")
 	local c_flame = minetest.get_content_id("caverealms:constant_flame")
-	local c_fountain = minetest.get_content_id("caverealms:s_fountain")
-	local c_fortress = minetest.get_content_id("caverealms:s_fortress")
 	
 	--mandatory values
 	local sidelen = x1 - x0 + 1 --length of a mapblock
@@ -288,12 +281,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							data[vi] = c_hcobble
 							if math.random() < FLACHA then --neverending flames
 								data[ai] = c_flame
-							end
-							if math.random() < FOUNCHA and FOUNTAINS then --DM FOUNTAIN
-								data[ai] = c_fountain
-							end
-							if math.random() < FORTCHA and FORTRESSES then --DM FORTRESS
-								data[ai] = c_fortress
 							end
 						elseif biome == 7 then
 							local bi = area:index(x,y-1,z)
