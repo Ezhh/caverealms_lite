@@ -26,6 +26,7 @@ minetest.register_craft({
 	}
 })
 
+-- Requires ethereal:fish_raw
 if minetest.get_modpath("ethereal") then
 
 	-- Professional Fishing Rod
@@ -36,11 +37,11 @@ if minetest.get_modpath("ethereal") then
 	})
 
 	minetest.register_craft({
-		output = "caverealms:angler_rod_baited",
+		output = "caverealms:angler_rod",
 		recipe = {
 				{"","","default:steel_ingot"},
-				{"", "default:steel_ingot", "farming:string"},
-				{"default:steel_ingot", "", "farming:string"},
+				{"", "default:steel_ingot", "caverealms:mushroom_gills"},
+				{"default:steel_ingot", "", "caverealms:mushroom_gills"},
 			}
 	})
 
@@ -67,7 +68,7 @@ if minetest.get_modpath("ethereal") then
 
 			if (node == "default:water_source"
 			or node == "default:river_water_source")
-			and math.random(1, 100) < 25 then
+			and math.random(1, 100) < 20 then
 
 				local type = fish[math.random(1, #fish)][1]
 				local inv = user:get_inventory()
