@@ -353,6 +353,7 @@ minetest.register_node("caverealms:hot_cobble", {
 	groups = {cracky=1, hot=1},
 	damage_per_second = 1,
 	light_source = 3,
+	paramtype = "light",
 	sounds = default.node_sound_stone_defaults({
 		footstep = {name="default_stone_footstep", gain=0.25},
 	}),
@@ -365,6 +366,7 @@ minetest.register_node("caverealms:glow_obsidian", {
 	is_ground_content = true,
 	groups = {cracky=1, level=2},
 	light_source = 7,
+	paramtype = "light",
 	sounds = default.node_sound_stone_defaults({
 		footstep = {name="default_stone_footstep", gain=0.25},
 	}),
@@ -378,6 +380,7 @@ minetest.register_node("caverealms:glow_obsidian_2", {
 	groups = {crumbly=1, hot=1},
 	damage_per_second = 1,
 	light_source = 9,
+	paramtype = "light",
 	sounds = default.node_sound_stone_defaults({
 		footstep = {name="default_stone_footstep", gain=0.25},
 	}),
