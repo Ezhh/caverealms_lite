@@ -350,7 +350,7 @@ minetest.register_node("caverealms:hot_cobble", {
 	description = "Hot Cobble",
 	tiles = {"caverealms_hot_cobble.png"},
 	is_ground_content = true,
-	groups = {cracky=1, hot=1},
+	groups = {cracky=1, hot=1, unbreakable = 1},
 	damage_per_second = 1,
 	light_source = 3,
 	paramtype = "light",

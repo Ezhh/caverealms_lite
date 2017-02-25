@@ -21,6 +21,12 @@ if caverealms.config.falling_icicles == true then
 	print("[caverealms] falling icicles enabled.")
 end
 
+if minetest.get_modpath("mobs_monster") then
+	if caverealms.config.dm_spawn == true then
+		dofile(modpath.."/dungeon_master.lua") --special DMs for DM's Lair biome
+	end
+end
+
 -- Parameters
 
 local YMIN = caverealms.config.ymin -- Approximate realm limits.

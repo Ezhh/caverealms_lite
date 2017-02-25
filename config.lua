@@ -64,6 +64,9 @@ setting("number", "flacha", 0.04) --chance of constant flames
 setting("number", "dm_top", -14000) --upper limit
 setting("number", "dm_bot", -16000) --lower limit
 
+--should DMs spawn in DM Lair?
+setting("bool", "dm_spawn", true) 
+
 --Deep cave settings
 setting("number", "deep_cave", -7000) -- upper limit
 
