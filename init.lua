@@ -97,21 +97,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local c_ice = minetest.get_content_id("default:ice")
 	local c_thinice = minetest.get_content_id("caverealms:thin_ice")
 	local c_crystal = minetest.get_content_id("caverealms:glow_crystal")
-	local c_gem1 = minetest.get_content_id("caverealms:glow_gem")
-	local c_gem2 = minetest.get_content_id("caverealms:glow_gem_2")
-	local c_gem3 = minetest.get_content_id("caverealms:glow_gem_3")
-	local c_gem4 = minetest.get_content_id("caverealms:glow_gem_4")
-	local c_gem5 = minetest.get_content_id("caverealms:glow_gem_5")
-	local c_saltgem1 = minetest.get_content_id("caverealms:salt_gem")
-	local c_saltgem2 = minetest.get_content_id("caverealms:salt_gem_2")
-	local c_saltgem3 = minetest.get_content_id("caverealms:salt_gem_3")
-	local c_saltgem4 = minetest.get_content_id("caverealms:salt_gem_4")
-	local c_saltgem5 = minetest.get_content_id("caverealms:salt_gem_5")
-	local c_spike1 = minetest.get_content_id("caverealms:spike")
-	local c_spike2 = minetest.get_content_id("caverealms:spike_2")
-	local c_spike3 = minetest.get_content_id("caverealms:spike_3")
-	local c_spike4 = minetest.get_content_id("caverealms:spike_4")
-	local c_spike5 = minetest.get_content_id("caverealms:spike_5")
+	local c_gem = minetest.get_content_id("caverealms:glow_gem")
+	local c_saltgem = minetest.get_content_id("caverealms:salt_gem")
+	local c_spike = minetest.get_content_id("caverealms:spike")
 	local c_moss = minetest.get_content_id("caverealms:stone_with_moss")
 	local c_lichen = minetest.get_content_id("caverealms:stone_with_lichen")
 	local c_algae = minetest.get_content_id("caverealms:stone_with_algae")
@@ -250,13 +238,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						if biome == 1 then
 							data[vi] = c_moss
 							if math.random() < GEMCHA then
-								-- gems of random size
-								local gems = { c_gem1, c_gem2, c_gem3, c_gem4, c_gem5 }
-								local gidx = math.random(1, 12)
-								if gidx > 5 then
-									gidx = 1
-								end
-								data[ai] = gems[gidx]
+								data[ai] = c_gem
 							end
 						elseif biome == 2 then
 							data[vi] = c_lichen
@@ -295,13 +277,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							data[vi] = c_salt
 							data[bi] = c_salt
 							if math.random() < GEMCHA then
-								-- gems of random size
-								local gems = { c_saltgem1, c_saltgem2, c_saltgem3, c_saltgem4, c_saltgem5 }
-								local gidx = math.random(1, 12)
-								if gidx > 5 then
-									gidx = 1
-								end
-								data[ai] = gems[gidx]
+								data[ai] = c_saltgem
 							end
 							if math.random() < STAGCHA then
 								caverealms:salt_stalagmite(x,y,z, area, data)
@@ -334,13 +310,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								data[ai] = c_flame
 							end
 							if math.random() < GEMCHA then
-								-- spikes of random size
-								local spikes = { c_spike1, c_spike2, c_spike3, c_spike4, c_spike5 }
-								local sidx = math.random(1, 12)
-								if sidx > 5 then
-									sidx = 1
-								end
-								data[ai] = spikes[sidx]
+								data[ai] = c_spike
 							end
 						end
 
