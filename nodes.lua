@@ -377,7 +377,7 @@ minetest.register_node("caverealms:glow_obsidian_2", {
 	description = "Hot Glow Obsidian",
 	tiles = {"caverealms_glow_obsidian2.png"},
 	is_ground_content = true,
-	groups = {crumbly=1, hot=1},
+	groups = {cracky=1, hot=1, level=2},
 	damage_per_second = 1,
 	light_source = 9,
 	paramtype = "light",
