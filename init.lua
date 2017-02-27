@@ -60,6 +60,15 @@ local np_biome = {
 	persist = 0.5
 }
 
+local np_blend = {
+	offset = 0,
+	scale = 1,
+	spread = {x=25, y=25, z=25},
+	seed = 27382,
+	octaves = 3,
+	persist = 5
+}
+
 -- Stuff
 
 subterrain = {}
@@ -127,18 +136,11 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local minposxz = {x=x0, y=z0} --2D bottom corner
 	
 	local nvals_biome = minetest.get_perlin_map(np_biome, chulens2D):get2dMap_flat({x=x0+150, y=z0+50}) --2D noise for biomes (will be 3D humidity/temp later)
+	local nvals_blend = minetest.get_perlin_map(np_blend, chulens2D):get2dMap_flat({x=x0+1050, y=z0+1050})
 	
 	local nixyz = 1 --3D node index
 	local nixz = 1 --2D node index
-	local nixyz2 = 1 --second 3D index for second loop
-	
-	local allow_deep_caves
-
-	if (math.random() <= 0.5) then
-		allow_deep_caves = true
-	else
-		allow_deep_caves = false
-	end
+	local nixz2 = 1 --second 2D index for biome "blend"
 
 	for z = z0, z1 do -- for each xy plane progressing northwards
 		--increment indices
@@ -149,6 +151,14 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		for y = y0, y1 do -- for each x row progressing upwards
 		
 			local c_selected_worm = c_worm
+
+			local allow_deep_caves
+
+			if ((nvals_biome[nixz] + nvals_blend[nixz2]) > 0.5) then
+				allow_deep_caves = true
+			else
+				allow_deep_caves = false
+			end
 
 			local is_deep = false
 			if allow_deep_caves and y < DEEP_CAVE then
@@ -323,13 +333,14 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					end
 
 				end
-				nixyz2 = nixyz2 + 1
 				nixz = nixz + 1
 				vi = vi + 1
 			end
 			nixz = nixz - sidelen --shift the 2D index back
+			nixz2 = nixz2 + 1
 		end
 		nixz = nixz + sidelen --shift the 2D index up a layer
+		nixz2 = nixz2 - sidelen --shift the 2D index back
 	end
 
 	--send data back to voxelmanip
