@@ -131,22 +131,32 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local nixyz = 1 --3D node index
 	local nixz = 1 --2D node index
 	local nixyz2 = 1 --second 3D index for second loop
+	
+	local allow_deep_caves
+
+	if (math.random() <= 0.5) then
+		allow_deep_caves = true
+	else
+		allow_deep_caves = false
+	end
 
 	for z = z0, z1 do -- for each xy plane progressing northwards
 		--increment indices
 		nixyz = nixyz + 1
 
+
 		--decoration loop
 		for y = y0, y1 do -- for each x row progressing upwards
 		
 			local c_selected_worm = c_worm
-			local vi = area:index(x0, y, z)
-			local is_deep = false
 
-			if y0 < DEEP_CAVE then
+			local is_deep = false
+			if allow_deep_caves and y < DEEP_CAVE then
 				is_deep = true
 			end
+		
 
+			local vi = area:index(x0, y, z)
 			for x = x0, x1 do -- for each node do
 				
 				--determine biome
