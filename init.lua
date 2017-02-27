@@ -143,7 +143,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local vi = area:index(x0, y, z)
 			local is_deep = false
 
-			if y0 < DEEP_CAVE then
+			if y < DEEP_CAVE then
 				is_deep = true
 			end
 
