@@ -410,7 +410,7 @@ minetest.register_node("caverealms:glow_worm", {
 	visual_scale = 1.0,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -0.5, 0.5},
+		fixed = {-1/6, -1/2, -1/6, 1/6, 1/2, 1/6},
 	},
 })
 
@@ -429,7 +429,7 @@ minetest.register_node("caverealms:glow_worm_green", {
 	visual_scale = 1.0,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -0.5, 0.5},
+		fixed = {-1/6, -1/2, -1/6, 1/6, 1/2, 1/6},
 	},
 })
 
@@ -449,7 +449,7 @@ minetest.register_node("caverealms:fire_vine", {
 	visual_scale = 1.0,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -0.5, 0.5},
+		fixed = {-1/6, -1/2, -1/6, 1/6, 1/2, 1/6},
 	},
 })
 
