@@ -8,6 +8,8 @@ This caverealms fork provides all the biomes and decorations from the original c
 
 It is specifically written to work with the mgvalleys mapgen, but will work using other mapgens as well. The mapgen used will determine the shape and size of individual caves. Mapgens that generate only smaller caves may be less suitable for use with this fork than mgvalleys.   
 
+Note: For worlds where the original caverealms is already in use, this fork is not advised as a replacement. If used in this way, some unknown nodes and other minor issues should be expected.
+
 
 ## License and Contributors
 
