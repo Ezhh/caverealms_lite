@@ -9,7 +9,7 @@ local DM_TOP = caverealms.config.dm_top -- -4000 --level at which Dungeon Master
 
 --glowing crystal
 minetest.register_node("caverealms:glow_crystal", {
-	description = "Glow Crystal",
+	description = "Glow Sapphire",
 	tiles = {"caverealms_glow_crystal.png"},
 	is_ground_content = true,
 	groups = {cracky=3},
@@ -37,7 +37,7 @@ minetest.register_node("caverealms:glow_emerald", {
 
 --glowing mese crystal blocks
 minetest.register_node("caverealms:glow_mese", {
-	description = "Mese Crystal Block",
+	description = "Glow Mese Crystal",
 	tiles = {"caverealms_glow_mese.png"},
 	is_ground_content = true,
 	groups = {cracky=3},
@@ -333,7 +333,7 @@ minetest.register_node("caverealms:stone_with_algae", {
 
 --tiny-salt-crystal-covered cobble - pink-ish
 minetest.register_node("caverealms:stone_with_salt", {
-	description = "Cave Stone with Salt",
+	description = "Salt Crystal",
 	tiles = {"caverealms_salty2.png"},--{"caverealms_salty2.png^caverealms_salty.png", "caverealms_salty2.png", "caverealms_salty2.png^caverealms_salty_side.png"},
 	light_source = 9,
 	paramtype = "light",
@@ -374,7 +374,7 @@ minetest.register_node("caverealms:glow_obsidian", {
 
 --Glow Obsidian 2 - has traces of lava
 minetest.register_node("caverealms:glow_obsidian_2", {
-	description = "Hot Glow Obsidian",
+	description = "Hot Glowing Obsidian",
 	tiles = {"caverealms_glow_obsidian2.png"},
 	is_ground_content = true,
 	groups = {cracky=1, hot=1, level=2},
@@ -396,7 +396,7 @@ minetest.register_node("caverealms:coal_dust", {
 
 --glow worms
 minetest.register_node("caverealms:glow_worm", {
-	description = "Glow Worms",
+	description = "Blue Glow Worms",
 	tiles = {"caverealms_glow_worm.png"},
 	inventory_image = "caverealms_glow_worm.png",
 	wield_image = "caverealms_glow_worm.png",
@@ -415,7 +415,7 @@ minetest.register_node("caverealms:glow_worm", {
 })
 
 minetest.register_node("caverealms:glow_worm_green", {
-	description = "Glow Worms Green",
+	description = "Green Glow Worms",
 	tiles = {"caverealms_glow_worm_green.png"},
 	inventory_image = "caverealms_glow_worm_green.png",
 	wield_image = "caverealms_glow_worm_green.png",
@@ -564,6 +564,7 @@ minetest.register_node("caverealms:constant_flame", {
 
 --dungeon master statue (nodebox)
 minetest.register_node("caverealms:dm_statue", {
+	description = "Dungeon Master Statue",
 	tiles = {
 		"caverealms_dm_stone.png",
 		"caverealms_dm_stone.png",
