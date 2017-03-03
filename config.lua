@@ -29,10 +29,6 @@ setting("number", "tcave", 0.75) --cave threshold
 --should player spawn in caves?
 setting("bool", "cavespawn", false)
 
---falling icicles
-setting("bool", "falling_icicles", true) --enable/disable falling icicles
-setting("number", "fallcha", 0.33) --chance of icicles falling when dug
-
 --decoration chances
 --setting("number", "stagcha", 0.002) --chance of stalagmites
 --setting("number", "stalcha", 0.003) --chance of stalactites

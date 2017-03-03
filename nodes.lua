@@ -2,10 +2,7 @@
 
 --NODES--
 
-local FALLING_ICICLES = caverealms.config.falling_icicles --true --toggle to turn on or off falling icicles in glaciated biome
-local FALLCHA = caverealms.config.fallcha --0.33 --chance of causing the structure to fall
 local DM_TOP = caverealms.config.dm_top -- -4000 --level at which Dungeon Master Realms start to appear
-
 
 --glowing crystal
 minetest.register_node("caverealms:glow_crystal", {
@@ -147,46 +144,6 @@ minetest.register_node("caverealms:salt_crystal", {
 	use_texture_alpha = true,
 	drawtype = "glasslike",
 	sunlight_propagates = true,
-})
-
---alternate version for stalactites
-minetest.register_node("caverealms:hanging_thin_ice", {
-	description = "Thin Ice",
-	tiles = {"caverealms_thin_ice.png"},
-	is_ground_content = true,
-	groups = {cracky=3},
-	sounds = default.node_sound_glass_defaults(),
-	use_texture_alpha = true,
-	drawtype = "glasslike",
-	sunlight_propagates = true,
-	drop = "caverealms:thin_ice",
-	freezemelt = "default:water_flowing",
-	paramtype = "light",
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if FALLING_ICICLES then
-			if math.random() <= FALLCHA then
-				obj = minetest.add_entity(pos, "caverealms:falling_ice")
-				obj:get_luaentity():set_node(oldnode)
-				for y = -13, 13 do
-					for x = -3, 3 do
-					for z = -3, 3 do
-						local npos = {x=pos.x+x, y=pos.y+y, z=pos.z+z}
-						if minetest.get_node(npos).name == "caverealms:hanging_thin_ice" then
-							nobj = minetest.add_entity(npos, "caverealms:falling_ice")
-							nobj:get_luaentity():set_node(oldnode)
-							minetest.remove_node(npos)
-						end
-					end
-					end
-				end
-				minetest.remove_node(pos)
-			else
-				return 1
-			end
-		else
-			return 1
-		end
-	end,
 })
 
 --glowing crystal gem
@@ -621,3 +578,7 @@ minetest.register_node("caverealms:dm_statue", {
 		type = "regular"
 	}
 })
+
+
+-- Compatibility:  "caverealms:hanging_thin_ice" was removed 4-March-2017
+minetest.register_alias("caverealms:hanging_thin_ice", "caverealms:thin_ice")
