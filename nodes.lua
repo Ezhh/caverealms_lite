@@ -334,7 +334,7 @@ minetest.register_node("caverealms:stone_with_algae", {
 --tiny-salt-crystal-covered cobble - pink-ish
 minetest.register_node("caverealms:stone_with_salt", {
 	description = "Salt Crystal",
-	tiles = {"caverealms_salty2.png"},--{"caverealms_salty2.png^caverealms_salty.png", "caverealms_salty2.png", "caverealms_salty2.png^caverealms_salty_side.png"},
+	tiles = {"caverealms_salty2.png"},
 	light_source = 9,
 	paramtype = "light",
 	use_texture_alpha = true,
