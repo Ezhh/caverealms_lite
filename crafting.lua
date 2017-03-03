@@ -29,6 +29,40 @@ minetest.register_craft({
 	}
 })
 
+-- Glow obsidian brick
+minetest.register_craft({
+	output = "caverealms:glow_obsidian_brick 4",
+	recipe = {
+		{"caverealms:glow_obsidian", "caverealms:glow_obsidian"},
+		{"caverealms:glow_obsidian", "caverealms:glow_obsidian"}
+	}
+})
+
+minetest.register_craft({
+	output = "caverealms:glow_obsidian_brick_2 4",
+	recipe = {
+		{"caverealms:glow_obsidian_2", "caverealms:glow_obsidian_2"},
+		{"caverealms:glow_obsidian_2", "caverealms:glow_obsidian_2"}
+	}
+})
+
+-- Glow obsidian glass
+minetest.register_craft({
+	output = "caverealms:glow_obsidian_glass 5",
+	recipe = {
+		{"default:glass", "default:glass", "default:glass"},
+		{"default:glass", "default:glass", "caverealms:glow_obsidian"}
+	}
+})
+
+minetest.register_craft({
+	output = "caverealms:glow_obsidian_glass 5",
+	recipe = {
+		{"default:glass", "default:glass", "default:glass"},
+		{"default:glass", "default:glass", "caverealms:glow_obsidian_2"}
+	}
+})
+
 -- Requires ethereal:fish_raw
 if minetest.get_modpath("ethereal") then
 

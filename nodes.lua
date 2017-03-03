@@ -385,6 +385,35 @@ minetest.register_node("caverealms:glow_obsidian_2", {
 	}),
 })
 
+--Glow Obsidian Bricks
+minetest.register_node("caverealms:glow_obsidian_brick", {
+	description = "Glow Obsidian Brick",
+	tiles = {"caverealms_glow_obsidian_brick.png"},
+	light_source = 7,
+	groups = {cracky = 1, level = 2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("caverealms:glow_obsidian_brick_2", {
+	description = "Glow Obsidian Brick",
+	tiles = {"caverealms_glow_obsidian_brick_2.png"},
+	light_source = 9,
+	groups = {cracky = 1, level = 2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+--Glow Obsidian Glass
+minetest.register_node("caverealms:glow_obsidian_glass", {
+	description = "Glow Obsidian Glass",
+	drawtype = "glasslike_framed_optional",
+	tiles = {"caverealms_glow_obsidian_glass.png", "default_obsidian_glass_detail.png"},
+	paramtype = "light",
+	light_source = 13,
+	sunlight_propagates = true,
+	groups = {cracky = 3},
+	sounds = default.node_sound_glass_defaults(),
+})
+
 --Coal Dust
 minetest.register_node("caverealms:coal_dust", {
 	description = "Coal Dust",
