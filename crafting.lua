@@ -19,6 +19,16 @@ minetest.register_craft({
 	}
 })
 
+-- DM statue
+minetest.register_craft({
+	output = "caverealms:dm_statue",
+	recipe = {
+		{"caverealms:glow_ore","caverealms:hot_cobble","caverealms:glow_ore"},
+		{"caverealms:hot_cobble","caverealms:hot_cobble","caverealms:hot_cobble"},
+		{"caverealms:hot_cobble","caverealms:hot_cobble","caverealms:hot_cobble"}
+	}
+})
+
 -- Requires ethereal:fish_raw
 if minetest.get_modpath("ethereal") then
 
