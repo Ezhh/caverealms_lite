@@ -49,7 +49,7 @@ local DEEP_CAVE = caverealms.config.deep_cave -- -7000 --level at which deep cav
 local np_biome = {
 	offset = 0,
 	scale = 1,
-	spread = {x=250, y=250, z=250},
+	spread = {x=200, y=200, z=200},
 	seed = 9130,
 	octaves = 3,
 	persist = 0.5
@@ -127,13 +127,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local nixz = 1 --2D node index
 	local nixyz2 = 1 --second 3D index for second loop
 	
-	local allow_deep_caves
-
-	if (math.random() <= 0.5) then
-		allow_deep_caves = true
-	else
-		allow_deep_caves = false
-	end
 
 	for z = z0, z1 do -- for each xy plane progressing northwards
 		--increment indices
@@ -146,7 +139,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local c_selected_worm = c_worm
 
 			local is_deep = false
-			if allow_deep_caves and y < DEEP_CAVE then
+			if y < DEEP_CAVE then
 				is_deep = true
 			end
 		
@@ -160,31 +153,36 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 				--compare noise values to determine a biome
 				if n_biome <= -0.5 then
-					if is_deep then
+					if is_deep and n_biome <= -0.25 then
 						biome = 8 --glow obsidian
 					else
 						biome = 2 --fungal
 						c_selected_worm = c_worm_green
 					end
+
 				elseif n_biome < 0 then
 						biome = 0 -- none
+
 				elseif n_biome < 0.5 then
-					if is_deep then
+					if is_deep and n_biome <= 0.25 then
 						biome = 7 --salt crystal
 					else
 						biome = 1 --moss
 					end
+
 				elseif n_biome < 0.65 then
 					biome = 0
-				elseif n_biome < 0.8 then
-					if is_deep then
+
+				elseif n_biome < 0.85 then
+					if is_deep and n_biome <= 0.75 then
 						biome = 9 --coal dust
 					else
 						biome = 3 --algae
 						c_selected_worm = c_worm_green
 					end
+
 				else
-					if is_deep then
+					if is_deep and n_biome <= .95 then
 						biome = 5 --deep glaciated
 					else
 						biome = 4 --glaciated
