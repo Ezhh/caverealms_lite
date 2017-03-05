@@ -82,6 +82,20 @@ if minetest.get_modpath("ethereal") then
 			}
 	})
 
+	-- Glow Bait
+	minetest.register_craftitem("caverealms:glow_bait", {
+		description = "Glow Bait",
+		inventory_image = "caverealms_glow_bait.png",
+		wield_image = "caverealms_glow_bait.png",
+	})
+
+	minetest.register_craft({
+		output = "caverealms:glow_bait 9",
+		recipe = {
+				{"caverealms:glow_worm_green"},
+			}
+	})
+
 	-- default ethereal fish
 	local fish = {
 		{"ethereal:fish_raw"},
@@ -126,6 +140,6 @@ if minetest.get_modpath("ethereal") then
 	minetest.register_craft({
 		type = "shapeless",
 		output = "caverealms:angler_rod_baited",
-		recipe = {"caverealms:angler_rod", "caverealms:glow_worm_green"},
+		recipe = {"caverealms:angler_rod", "caverealms:glow_bait"},
 	})
 end
