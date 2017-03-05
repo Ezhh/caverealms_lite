@@ -119,7 +119,7 @@ if minetest.get_modpath("ethereal") then
 
 			if (node == "default:water_source"
 			or node == "default:river_water_source")
-			and math.random(1, 100) < 20 then
+			and math.random(1, 100) < 35 then
 
 				local type = fish[math.random(1, #fish)][1]
 				local inv = user:get_inventory()
