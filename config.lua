@@ -26,9 +26,6 @@ setting("number", "ymax", -1500) --top realm limit
 --setting("number", "tcave", 0.5) --cave threshold
 setting("number", "tcave", 0.75) --cave threshold
 
---should player spawn in caves?
-setting("bool", "cavespawn", false)
-
 --decoration chances
 --setting("number", "stagcha", 0.002) --chance of stalagmites
 --setting("number", "stalcha", 0.003) --chance of stalactites
