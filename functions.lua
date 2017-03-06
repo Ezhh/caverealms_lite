@@ -461,38 +461,3 @@ function caverealms:legacy_giant_shroom(x, y, z, area, data) --leftovers :P
 		end
 	end
 end
-
--- Experimental and very geometric function to create giant octagonal crystals in a variety of random directions
--- Uses calculations for points on a sphere, lines in geometric space
--- CURRENTLY USELESS, NOT LIKELY TO BE IMPLEMENTED SOON
-function caverealms:octagon(x, y, z, area, data)
-	--Grab content id's... diamond is a placeholder
-	local c_crys = minetest.get_content_id("default:diamondblock")
-	
-	local MAX_LEN = 25 --placeholder for a config file constant
-	local MIN_LEN = 10 --ditto
-	
-	local target = {x=0, y=MAX_LEN, z=0} -- 3D space coordinate of the crystal's endpoint
-	
-	local length = math.random(MIN_LEN, MAX_LEN) --get a random length for the crystal
-	local dir1 = math.random(0, 359) -- Random direction in degrees around a circle
-	local dir2 = math.random(0, 180) -- Random direction in a semicircle, for 3D location
-	
-	--OK, so now make a 3D point out of those spherical coordinates...
-	target.x = math.ceil(length * math.cos(dir1 * 3.14/180)) --Round it up to make sure it's a nice integer for the coordinate system
-	target.z = math.ceil(length * math.sin(dir1 * 3.14/180))
-	--Y is also simple, just use dir2.  Note that, due to how these calculations are carried out, this is not a coordinate on a perfect sphere. This is OK for our purposes.
-	target.y = math.ceil(length * math.sin(dir2 * 3.14/180))
-	
-	-- Now, determine if the crystal should go up or down, based on where it is
-	if (caverealms:above_solid(x,y,z,area,data)) then
-		target.y = target.y * -1
-	end
-	
-	--Bring the coordinates near the area you're generating
-	target.x = target.x + x
-	target.y = target.y + y
-	target.z = target.z + z
-	
-	
-end
