@@ -128,7 +128,11 @@ if minetest.get_modpath("ethereal") then
 
 					inv:add_item("main", {name = type})
 
-					return ItemStack("caverealms:angler_rod")
+					if (math.random() < 0.6) then
+						return ItemStack("caverealms:angler_rod_baited")
+					else
+						return ItemStack("caverealms:angler_rod")
+					end
 				else
 					minetest.chat_send_player(user:get_player_name(),
 						"Inventory full, Fish Got Away!")
