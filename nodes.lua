@@ -501,6 +501,32 @@ else
 		tiles = {"caverealms_mushroom_cap.png"},
 		is_ground_content = true,
 		groups = {choppy=2, oddly_breakable_by_hand=1,},
+		drop = {
+			max_items = 1,
+			items = {
+				{items = {"caverealms:mushroom_sapling"}, rarity = 20},
+				{items = {"caverealms:mushroom_cap"}}
+			}
+		},
+	})
+
+	--sapling
+	minetest.register_node("caverealms:mushroom_sapling", {
+		description = "Mushroom Tree Sapling",
+		drawtype = "plantlike",
+		tiles = {"caverealms_mushroom_sapling.png"},
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = false,
+		walkable = false,
+		selection_box = {
+			type = "fixed",
+			fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
+		},
+		groups = {
+			snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1
+		},
+		sounds = default.node_sound_leaves_defaults(),
 	})
 end
 
