@@ -15,6 +15,7 @@ dofile(modpath.."/config.lua") --configuration file; holds various constants
 dofile(modpath.."/crafting.lua") --crafting recipes
 dofile(modpath.."/nodes.lua") --node definitions
 dofile(modpath.."/functions.lua") --function definitions
+dofile(modpath.."/plants.lua")
 
 if minetest.get_modpath("mobs_monster") then
 	if caverealms.config.dm_spawn == true then
