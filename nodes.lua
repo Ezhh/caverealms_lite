@@ -450,27 +450,12 @@ minetest.register_node("caverealms:constant_flame", {
 	}},
 	inventory_image = "fire_basic_flame.png",
 	light_source = 14,
-	groups = {igniter=2, dig_immediate=3, hot=3, not_in_creative_inventory=1},
+	groups = {igniter=2, dig_immediate=3, hot=3, not_in_creative_inventory=0},
 	paramtype = "light",
 	drop = '',
 	walkable = false,
 	buildable_to = true,
 	damage_per_second = 4,
-	
-	after_place_node = function(pos, placer)
-		if pos.y > DM_TOP then
-			minetest.remove_node(pos)
-		end
-		if fire.on_flame_add_at ~= nil then
-			fire.on_flame_add_at(pos)
-		end
-	end,
-	
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if (fire.on_flame_remove_at ~= nil) then
-			fire.on_flame_remove_at(pos)
-		end
-	end,
 })
 
 --dungeon master statue (nodebox)
