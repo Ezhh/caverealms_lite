@@ -2,8 +2,6 @@
 
 --NODES--
 
-local DM_TOP = caverealms.config.dm_top -- -4000 --level at which Dungeon Master Realms start to appear
-
 --glowing crystal
 minetest.register_node("caverealms:glow_crystal", {
 	description = "Glow Sapphire",
@@ -450,7 +448,7 @@ minetest.register_node("caverealms:constant_flame", {
 	}},
 	inventory_image = "fire_basic_flame.png",
 	light_source = 14,
-	groups = {igniter=2, dig_immediate=3, hot=3, not_in_creative_inventory=0},
+	groups = {igniter=2, dig_immediate=3, hot=3, not_in_creative_inventory=1},
 	paramtype = "light",
 	drop = '',
 	walkable = false,
