@@ -357,6 +357,25 @@ minetest.register_node("caverealms:glow_obsidian_brick_2", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+--Glow Obsidian Stairs/Slabs
+stairs.register_stair_and_slab(
+	"glow_obsidian_brick",
+	"caverealms:glow_obsidian_brick",
+	{cracky = 1, level = 2},
+	{"caverealms_glow_obsidian_brick.png"},
+	"Glow Obsidian Brick Stair",
+	"Glow Obsidian Brick Slab",
+	default.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab(
+	"glow_obsidian_brick_2",
+	"caverealms:glow_obsidian_brick_2",
+	{cracky = 1, level = 2},
+	{"caverealms_glow_obsidian_brick_2.png"},
+	"Glow Obsidian Brick Stair",
+	"Glow Obsidian Brick Slab",
+	default.node_sound_stone_defaults())
+
 --Glow Obsidian Glass
 minetest.register_node("caverealms:glow_obsidian_glass", {
 	description = "Glow Obsidian Glass",
