@@ -507,5 +507,20 @@ minetest.register_node("caverealms:dm_statue", {
 })
 
 
--- Compatibility:  "caverealms:hanging_thin_ice" was removed 4-March-2017
+-- Compatibility
 minetest.register_alias("caverealms:hanging_thin_ice", "caverealms:thin_ice")
+
+minetest.register_alias("caverealms:spike_2", "caverealms:spike")
+minetest.register_alias("caverealms:spike_3", "caverealms:spike")
+minetest.register_alias("caverealms:spike_4", "caverealms:spike")
+minetest.register_alias("caverealms:spike_5", "caverealms:spike")
+
+minetest.register_alias("caverealms:salt_gem_2", "caverealms:salt_gem")
+minetest.register_alias("caverealms:salt_gem_3", "caverealms:salt_gem")
+minetest.register_alias("caverealms:salt_gem_4", "caverealms:salt_gem")
+minetest.register_alias("caverealms:salt_gem_5", "caverealms:salt_gem")
+
+minetest.register_alias("caverealms:glow_gem_2", "caverealms:glow_gem")
+minetest.register_alias("caverealms:glow_gem_3", "caverealms:glow_gem")
+minetest.register_alias("caverealms:glow_gem_4", "caverealms:glow_gem")
+minetest.register_alias("caverealms:glow_gem_5", "caverealms:glow_gem")
