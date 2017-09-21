@@ -8,7 +8,6 @@ mobs:spawn({
 	active_object_count = 2,
 	max_height = -8000,
 	on_spawn = function(self, pos)
-		self = self:get_luaentity()
 		self.hp_max = 70
 		self.health = 70
 		self.damage = 5
