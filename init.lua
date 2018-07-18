@@ -1,10 +1,3 @@
--- caverealms v.0.8 by HeroOfTheWinds
--- original cave code modified from paramat's subterrain
--- For Minetest 0.4.8 stable
--- Depends default
--- License: code WTFPL
-
-
 caverealms = {} --create a container for functions and constants
 
 --grab a shorthand for the filepath of the mod

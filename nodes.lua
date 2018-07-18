@@ -1,7 +1,3 @@
--- CaveRealms nodes.lua
-
---NODES--
-
 --glowing crystal
 minetest.register_node("caverealms:glow_crystal", {
 	description = "Glow Sapphire",

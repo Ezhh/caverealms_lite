@@ -1,5 +1,3 @@
--- Cavrealms plants and trees for lichen, moss and algae biomes
-
 -- Lichen biome
 
 -- glowing fungi

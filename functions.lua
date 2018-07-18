@@ -1,7 +1,3 @@
---CaveRealms functions.lua
-
---FUNCTIONS--
-
 local H_LAG = caverealms.config.h_lag --15 --max height for stalagmites
 local H_LAC = caverealms.config.h_lac --20 --...stalactites
 local H_CRY = caverealms.config.h_cry --9 --max height of glow crystals

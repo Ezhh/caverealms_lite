@@ -1,4 +1,3 @@
-
 local CONFIG_FILE_PREFIX = "caverealms."
 
 caverealms.config = {}
@@ -52,4 +51,3 @@ setting("bool", "dm_spawn", true)
 
 --Deep cave settings
 setting("number", "deep_cave", -7000) -- upper limit
-

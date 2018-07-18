@@ -1,7 +1,3 @@
---CaveRealms crafting.lua
-
---CRAFT RECIPES--
-
 --thin ice to water
 minetest.register_craft({
 	output = "default:water_source",

@@ -1,4 +1,3 @@
-
 mobs:spawn({
 	name = "mobs_monster:dungeon_master",
 	nodes = {"caverealms:hot_cobble"},
@@ -15,5 +14,3 @@ mobs:spawn({
 		self.dogshoot_switch = 0
 	end
 })
-
-
