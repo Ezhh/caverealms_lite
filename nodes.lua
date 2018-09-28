@@ -221,7 +221,7 @@ minetest.register_node("caverealms:icicle_up", {
 	visual_scale = 1.0,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		fixed = {-0.5, -0.5, -0.5, 0.5, -7/16, 0.5},
 	},
 })
 
@@ -242,7 +242,7 @@ minetest.register_node("caverealms:icicle_down", {
 	visual_scale = 1.0,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		fixed = {-0.5, 7/16, -0.5, 0.5, 0.5, 0.5},
 	},
 })
 
