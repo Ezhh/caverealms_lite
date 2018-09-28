@@ -24,8 +24,8 @@ Contributors:
 ## Recommended Additions
 
 - VanessaE's HDX texturepacks provide alternative textures. For example,
-https://github.com/VanessaE/hdx-128.
-- ethereal mod unlocks additional content (https://github.com/tenplus1/ethereal).
-- mobs_monster mod allows Dungeon Masters to spawn in the Dungeon Master's Lair biome (https://github.com/tenplus1/mobs_monster). 
-- mobs_redo is required to run mobs_monster (https://github.com/tenplus1/mobs_redo).
+https://gitlab.com/VanessaE/hdx-128.
+- ethereal mod unlocks additional content (https://notabug.org/tenplus1/ethereal).
+- mobs_monster mod allows Dungeon Masters to spawn in the Dungeon Master's Lair biome (https://notabug.org/tenplus1/mobs_monster). 
+- mobs_redo is required to run mobs_monster (https://notabug.org/tenplus1/mobs_redo).
 - abritorch adds coloured torches made with caverealms items (https://github.com/Ezhh/abritorch).
