@@ -7,7 +7,7 @@ caverealms.config = {}
 local function setting(stype, name, default)
 	local value
 	if stype == "bool" then
-		vvalue = minetest.settings:get_bool(CONFIG_FILE_PREFIX..name)
+		value = minetest.settings:get_bool(CONFIG_FILE_PREFIX..name)
 	elseif stype == "string" then
 		value = minetest.settings:get(CONFIG_FILE_PREFIX..name)
 	elseif stype == "number" then
